@@ -1,9 +1,10 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet } from 'react-native';
+import { Theme } from '../common/constants';
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
+      <Text style={styles.text}>Hello Expo.</Text>
     </View>
   );
 }
@@ -11,7 +12,13 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Theme.light.colors.base_0,
+  },
+  text: {
+    color: Theme.light.colors.base_100,
+    fontSize: Theme.fontSizes.xl_8,
+    fontWeight: 'semibold',
   },
 });
