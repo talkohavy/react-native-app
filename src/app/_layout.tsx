@@ -16,6 +16,7 @@ export default function RootLayout() {
         options={{
           headerShown: true,
           headerTitle: 'About',
+          headerLeft: () => <></>, // <--- in order to hide the back button, render this.
         }}
       />
     </Stack>
