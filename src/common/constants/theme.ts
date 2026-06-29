@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    textTransform: 'uppercase',
     textShadowColor: '#000000',
   },
   link: {
@@ -17,7 +16,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
-    textTransform: 'uppercase',
     textShadowColor: '#000000',
     textDecorationLine: 'underline',
   },
