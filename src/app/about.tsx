@@ -1,15 +1,10 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
 import { Theme } from '../common/constants';
 
-export default function Index() {
+export default function About() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello Expo.</Text>
-
-      <Link href='/about' style={Theme.light.link}>
-        About
-      </Link>
+      <Text style={styles.text}>About Expo.</Text>
     </View>
   );
 }

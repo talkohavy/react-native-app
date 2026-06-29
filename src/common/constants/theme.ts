@@ -1,5 +1,32 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: '#000000',
+    color: '#FFFFFF',
+    padding: 10,
+    borderRadius: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    textShadowColor: '#000000',
+  },
+  link: {
+    color: '#000000',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    textShadowColor: '#000000',
+    textDecorationLine: 'underline',
+  },
+});
+
 export const Theme = {
   light: {
+    button: styles.button,
+    link: styles.link,
     colors: {
       base_0: '#FFFFFF',
       base_10: '#E5E5E5',
