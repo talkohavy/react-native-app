@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { Theme } from '../common/constants';
+import { Theme } from '../../common/constants';
 
-export default function About() {
+export default function AboutScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>About Expo.</Text>
