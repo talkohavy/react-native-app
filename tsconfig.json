@@ -7,6 +7,6 @@
       "@/assets/*": ["./assets/*"]
     }
   },
-  "include": ["src", "App.tsx", "index.ts"],
+  "include": ["src"],
   "exclude": ["node_modules", "example"]
 }

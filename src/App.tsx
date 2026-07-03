@@ -1,9 +1,9 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStaticNavigation } from '@react-navigation/native';
-import AboutScreen from './src/screens/AboutScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import ShowcaseScreen from './src/screens/ShowcaseScreen';
+import AboutScreen from './screens/AboutScreen';
+import HomeScreen from './screens/HomeScreen';
+import ShowcaseScreen from './screens/ShowcaseScreen';
 
 const RootTabs = createBottomTabNavigator({
   initialRouteName: 'Home',
@@ -37,7 +37,7 @@ export default function App() {
   );
 }
 
-import { createTabIcon } from './src/components/TabIcon/TabIcon';
+import { createTabIcon } from './components/TabIcon/TabIcon';
 // figure this out later
 import type { StaticParamList } from '@react-navigation/native';
 
