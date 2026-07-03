@@ -1,33 +1,28 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStaticNavigation } from '@react-navigation/native';
-import AboutScreen from './screens/AboutScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Routes } from './routes';
 import HomeScreen from './screens/HomeScreen';
-import ShowcaseScreen from './screens/ShowcaseScreen';
 
-const RootTabs = createBottomTabNavigator({
+const experimentRoutes = Object.fromEntries(
+  Routes.map((screen) => [screen.name, { screen: screen.component, options: { title: screen.title } }]),
+) as unknown as ExperimentRoutes;
+
+const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
   screenOptions: {
-    headerShown: false,
-    tabBarActiveTintColor: '#8A5CF6',
+    headerTintColor: '#8A5CF6',
   },
   screens: {
     Home: {
       screen: HomeScreen,
-      options: { title: 'Home', tabBarIcon: createTabIcon('🏠') },
+      options: { title: 'Playground' },
     },
-    Showcase: {
-      screen: ShowcaseScreen,
-      options: { title: 'Showcase', tabBarIcon: createTabIcon('✨') },
-    },
-    About: {
-      screen: AboutScreen,
-      options: { title: 'About', tabBarIcon: createTabIcon('ℹ️') },
-    },
+    ...experimentRoutes,
   },
 });
 
-const Navigation = createStaticNavigation(RootTabs);
+const Navigation = createStaticNavigation(RootStack);
 
 export default function App() {
   return (
@@ -37,11 +32,10 @@ export default function App() {
   );
 }
 
-import { createTabIcon } from './components/TabIcon/TabIcon';
-// figure this out later
 import type { StaticParamList } from '@react-navigation/native';
+import type { ExperimentRoutes } from './common/types';
 
-type RootStackParamList = StaticParamList<typeof RootTabs>;
+type RootStackParamList = StaticParamList<typeof RootStack>;
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
