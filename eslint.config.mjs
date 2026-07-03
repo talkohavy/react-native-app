@@ -1,6 +1,8 @@
+import { fixupPluginRules } from '@eslint/compat';
 import pluginJs from '@eslint/js';
 import importPlugin from 'eslint-plugin-import';
 import perfectionist from 'eslint-plugin-perfectionist';
+import reactNative from 'eslint-plugin-react-native';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
@@ -15,6 +17,8 @@ export default [
     plugins: {
       perfectionist,
       import: importPlugin,
+      // @ts-ignore
+      'react-native': fixupPluginRules(reactNative), // <--- Plugin doesn't natively support flat config yet, so it's wrapped via @eslint/compat.
     },
   },
   {
@@ -99,6 +103,7 @@ export default [
           },
         },
       ],
+      'react-native/no-unused-styles': 'error', // <--- Disallow (no auto fix): unused keys in StyleSheet.create({...}).
       '@typescript-eslint/no-unused-vars': [
         'error',
         {

@@ -4,7 +4,7 @@ import { Theme } from '../../common/constants';
 export default function AboutScreen() {
   return (
     <View style={styles.container}>
-      <Text>About Expo.</Text>
+      <Text style={styles.text}>About Expo.</Text>
     </View>
   );
 }
