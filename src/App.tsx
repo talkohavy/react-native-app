@@ -6,9 +6,9 @@ import HomeScreen from './screens/HomeScreen';
 
 const experimentRoutes = Object.fromEntries(
   Routes.map((screen) => [screen.name, { screen: screen.component, options: { title: screen.title } }]),
-) as unknown as ExperimentRoutes;
+);
 
-const RootStack = createNativeStackNavigator({
+export const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
   screenOptions: {
     headerTintColor: '#8A5CF6',
@@ -30,18 +30,4 @@ export default function App() {
       <Navigation />
     </GestureHandlerRootView>
   );
-}
-
-import type { StaticParamList } from '@react-navigation/native';
-import type { ExperimentRoutes } from './common/types';
-
-type RootStackParamList = StaticParamList<typeof RootStack>;
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {
-      _no_key: never;
-    }
-  }
 }

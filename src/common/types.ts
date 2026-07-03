@@ -19,10 +19,3 @@ export type Route = {
   emoji: string;
   component: ComponentType;
 };
-
-export type ExperimentRoutes = {
-  [Screen in Route as Screen['name']]: {
-    screen: ComponentType;
-    options: { title: string };
-  };
-};
