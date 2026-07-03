@@ -1,14 +1,9 @@
-import { Text } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStaticNavigation } from '@react-navigation/native';
 import AboutScreen from './src/screens/AboutScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import ShowcaseScreen from './src/screens/ShowcaseScreen';
-
-const tabIcon = (emoji: string) => (props: { focused: boolean }) => (
-  <Text style={{ fontSize: 22, opacity: props.focused ? 1 : 0.5 }}>{emoji}</Text>
-);
 
 const RootTabs = createBottomTabNavigator({
   initialRouteName: 'Home',
@@ -19,15 +14,15 @@ const RootTabs = createBottomTabNavigator({
   screens: {
     Home: {
       screen: HomeScreen,
-      options: { title: 'Home', tabBarIcon: tabIcon('🏠') },
+      options: { title: 'Home', tabBarIcon: createTabIcon('🏠') },
     },
     Showcase: {
       screen: ShowcaseScreen,
-      options: { title: 'Showcase', tabBarIcon: tabIcon('✨') },
+      options: { title: 'Showcase', tabBarIcon: createTabIcon('✨') },
     },
     About: {
       screen: AboutScreen,
-      options: { title: 'About', tabBarIcon: tabIcon('ℹ️') },
+      options: { title: 'About', tabBarIcon: createTabIcon('ℹ️') },
     },
   },
 });
@@ -42,6 +37,7 @@ export default function App() {
   );
 }
 
+import { createTabIcon } from './src/components/TabIcon/TabIcon';
 // figure this out later
 import type { StaticParamList } from '@react-navigation/native';
 
