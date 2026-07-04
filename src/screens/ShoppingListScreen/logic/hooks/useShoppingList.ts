@@ -9,10 +9,15 @@ export function useShoppingList() {
   const hasLoadedRef = useRef(false);
 
   useEffect(() => {
-    async function loadItems() {
+    async function loadItemsFromStorage() {
       try {
-        const stored = await AsyncStorage.getItem(STORAGE_KEY);
-        if (stored) setItems(JSON.parse(stored) as ShoppingItem[]);
+        const storedItemsList = await AsyncStorage.getItem(STORAGE_KEY);
+
+        if (storedItemsList) {
+          const parsedItemsList = JSON.parse(storedItemsList) as ShoppingItem[];
+
+          setItems(parsedItemsList);
+        }
       } catch (error) {
         console.warn('Failed to load shopping list from storage', error);
       } finally {
@@ -20,7 +25,7 @@ export function useShoppingList() {
       }
     }
 
-    loadItems();
+    loadItemsFromStorage();
   }, []);
 
   useEffect(() => {
