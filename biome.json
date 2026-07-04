@@ -87,7 +87,8 @@
         "useExportsLast": "off",
         "noDefaultExport": "off",
         "useBlockStatements": "off",
-        "noJsxLiterals": "off"
+        "noJsxLiterals": "off",
+        "noTernary": "off"
       }
     }
   },

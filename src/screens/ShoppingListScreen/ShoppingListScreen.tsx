@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { Alert, FlatList, StyleSheet, View } from 'react-native';
 import { Theme } from '@src/common/constants';
 import AddItemForm from './content/AddItemForm';
 import EmptyState from './content/EmptyState';
@@ -16,7 +16,19 @@ export default function ShoppingListScreen() {
   };
 
   const handleRemove = (id: string) => {
-    setItems((current) => current.filter((item) => item.id !== id));
+    const item = items.find((current) => current.id === id);
+
+    const title = 'Remove item';
+    const description = item ? `Remove "${item.name}" from your list?` : 'Remove this item from your list?';
+
+    Alert.alert(title, description, [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Remove',
+        style: 'destructive',
+        onPress: () => setItems((current) => current.filter((listItem) => listItem.id !== id)),
+      },
+    ]);
   };
 
   return (
