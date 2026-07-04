@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { Theme } from '@src/common/constants';
 import AddItemForm from './content/AddItemForm';
 import EmptyState from './content/EmptyState';
@@ -10,23 +10,7 @@ import { getItemKey } from './logic/utils/getItemKey';
 import type { ShoppingItem } from './types';
 
 export default function ShoppingListScreen() {
-  const { items, addItem, removeItem } = useShoppingList();
-
-  const handleRemove = (id: string) => {
-    const item = items.find((current) => current.id === id);
-
-    const title = 'Remove item';
-    const description = item ? `Remove "${item.name}" from your list?` : 'Remove this item from your list?';
-
-    Alert.alert(title, description, [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Remove',
-        style: 'destructive',
-        onPress: () => removeItem(id),
-      },
-    ]);
-  };
+  const { items, addItem, handleRemove } = useShoppingList();
 
   const renderItem = useCallback((props: { item: ShoppingItem }) => {
     const { item } = props;
