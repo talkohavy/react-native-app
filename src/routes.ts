@@ -1,4 +1,5 @@
 import AboutScreen from './screens/AboutScreen';
+import ShoppingListScreen from './screens/ShoppingListScreen';
 import ShowcaseScreen from './screens/ShowcaseScreen';
 import type { Route } from './common/types';
 
@@ -27,5 +28,12 @@ export const Routes: Route[] = [
     description: 'What this app is about',
     emoji: 'ℹ️',
     component: AboutScreen,
+  },
+  {
+    name: 'ShoppingList',
+    title: 'Shopping List',
+    description: 'Add & remove items from your list',
+    emoji: '🛒',
+    component: ShoppingListScreen,
   },
 ];
