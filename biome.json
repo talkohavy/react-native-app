@@ -31,7 +31,8 @@
         "noFocusedTests": "off",
         "noTsIgnore": "off",
         "noThenProperty": "off",
-        "useIterableCallbackReturn": "off"
+        "useIterableCallbackReturn": "off",
+        "noConsole": "off"
       },
       "correctness": {
         "useExhaustiveDependencies": "off",
@@ -88,7 +89,8 @@
         "noDefaultExport": "off",
         "useBlockStatements": "off",
         "noJsxLiterals": "off",
-        "noTernary": "off"
+        "noTernary": "off",
+        "useNamingConvention": "off"
       }
     }
   },

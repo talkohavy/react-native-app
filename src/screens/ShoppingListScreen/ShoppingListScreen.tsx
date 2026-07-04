@@ -1,46 +1,23 @@
-import { useState } from 'react';
-import { Alert, FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { Theme } from '@src/common/constants';
 import AddItemForm from './content/AddItemForm';
 import EmptyState from './content/EmptyState';
 import ItemSeparator from './content/ItemSeparator';
-import ShoppingListItem from './content/ShoppingListItem';
+import { useShoppingListScreenLogic } from './logic/useShoppingListScreenLogic';
 import { getItemKey } from './logic/utils/getItemKey';
-import type { ShoppingItem } from './types';
 
 export default function ShoppingListScreen() {
-  const [items, setItems] = useState<ShoppingItem[]>([]);
-
-  const handleAdd = (name: string) => {
-    setItems((current) => [...current, { id: Date.now().toString(), name }]);
-  };
-
-  const handleRemove = (id: string) => {
-    const item = items.find((current) => current.id === id);
-
-    const title = 'Remove item';
-    const description = item ? `Remove "${item.name}" from your list?` : 'Remove this item from your list?';
-
-    Alert.alert(title, description, [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Remove',
-        style: 'destructive',
-        onPress: () => setItems((current) => current.filter((listItem) => listItem.id !== id)),
-      },
-    ]);
-  };
+  const { items, addItem, renderItem } = useShoppingListScreenLogic();
 
   return (
     <View style={styles.container}>
       <FlatList
         data={items}
-        // biome-ignore lint/performance/noJsxPropsBind: no
-        renderItem={({ item }) => <ShoppingListItem item={item} onRemove={handleRemove} />}
+        renderItem={renderItem}
         keyExtractor={getItemKey} // <--- if keyExtractor is ommitted, FlatList automatically looks for id or key in the item
         ListHeaderComponent={
           <View style={styles.formWrapper}>
-            <AddItemForm onAdd={handleAdd} />
+            <AddItemForm onAdd={addItem} />
           </View>
         }
         ListEmptyComponent={EmptyState}
