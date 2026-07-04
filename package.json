@@ -19,8 +19,9 @@
     "web": "expo start --web",
     "run:android": "expo run:android",
     "run:ios": "expo run:ios",
-    "build:release": "eas build --platform android --profile production",
-    "submit:release": "eas submit --platform android",
+    "build:apk": "eas build --platform android --profile production",
+    "build:play-store": "eas build --platform android --profile production",
+    "submit:play-store": "eas submit --platform android",
     "lint:expo": "expo lint"
   },
   "dependencies": {
@@ -31,7 +32,7 @@
     "@react-navigation/native": "^7.3.5",
     "@react-navigation/native-stack": "^7.17.7",
     "expo": "~56.0.12",
-    "expo-constants": "~56.0.18",
+    "expo-constants": "~56.0.20",
     "expo-dev-client": "~56.0.22",
     "expo-device": "~56.0.4",
     "expo-font": "~56.0.7",
@@ -39,6 +40,7 @@
     "expo-image": "~56.0.11",
     "expo-linear-gradient": "~56.0.4",
     "expo-linking": "~56.0.14",
+    "expo-notifications": "~56.0.19",
     "expo-splash-screen": "~56.0.10",
     "expo-status-bar": "~56.0.4",
     "expo-symbols": "~56.0.6",

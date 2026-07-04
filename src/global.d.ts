@@ -1,7 +1,7 @@
 import type { StaticParamList } from '@react-navigation/native';
-import type { RootStack } from './App';
+import type { TypeOfRootStack } from './App';
 
-type RootStackParamList = StaticParamList<typeof RootStack>;
+type RootStackParamList = StaticParamList<TypeOfRootStack>;
 
 declare global {
   // biome-ignore lint/style/noNamespace: no

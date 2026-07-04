@@ -1,19 +1,19 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { Theme } from '@src/common/constants';
-import { Routes } from '@src/routes';
-import ScreenLink from './content';
+import { routesArr } from '@src/routes';
+import { useHomeScreenLogic } from './logic/useHomeScreenLogic';
+import { getItemName } from './logic/utils/getItemName';
 
 export default function HomeScreen() {
-  const navigation = useNavigation();
+  const { renderItem } = useHomeScreenLogic();
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={Routes}
-        keyExtractor={(item) => item.name}
+        data={routesArr}
+        keyExtractor={getItemName}
         contentContainerStyle={styles.list}
-        renderItem={({ item }) => <ScreenLink item={item} onPress={() => navigation.navigate(item.name)} />}
+        renderItem={renderItem}
         ListHeaderComponent={
           <View style={styles.header}>
             <Text style={styles.title}>Playground</Text>

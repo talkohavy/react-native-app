@@ -1,4 +1,6 @@
 import AboutScreen from './screens/AboutScreen';
+import PushNotificationsScreen from './screens/PushNotificationsScreen';
+// import HomeScreen from './screens/HomeScreen';
 import ShoppingListScreen from './screens/ShoppingListScreen';
 import ShowcaseScreen from './screens/ShowcaseScreen';
 import type { Route } from './common/types';
@@ -14,7 +16,14 @@ import type { Route } from './common/types';
  * `string`) so React Navigation can type-check `navigation.navigate(...)`
  * calls against the exact set of route names below.
  */
-export const Routes: Route[] = [
+export const routesArr: Route[] = [
+  // {
+  //   name: 'Home',
+  //   title: 'Home',
+  //   description: 'Home',
+  //   emoji: '🏠',
+  //   component: HomeScreen,
+  // },
   {
     name: 'Showcase',
     title: 'Showcase',
@@ -36,4 +45,23 @@ export const Routes: Route[] = [
     emoji: '🛒',
     component: ShoppingListScreen,
   },
+  {
+    name: 'PushNotifications',
+    title: 'Push Notifications',
+    description: 'Send push notifications',
+    emoji: '📱',
+    component: PushNotificationsScreen,
+  },
 ];
+
+export const allRoutes = Object.fromEntries(
+  routesArr.map((screen) => [
+    screen.name,
+    {
+      screen: screen.component,
+      options: {
+        title: screen.title,
+      },
+    },
+  ]),
+);
