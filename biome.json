@@ -68,6 +68,10 @@
         "noAriaHiddenOnFocusable": "off"
       },
       "style": {
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": { "style": "type" }
+        },
         "useSingleVarDeclarator": "off",
         "noParameterAssign": "off",
         "noNonNullAssertion": "off",
