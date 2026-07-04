@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { parseJson } from '@src/common/utils/parseJson';
 import type { ShoppingItem } from '../../types';
 
 const STORAGE_KEY = 'shopping-list-items';
@@ -13,11 +14,13 @@ export function useShoppingList() {
       try {
         const storedItemsList = await AsyncStorage.getItem(STORAGE_KEY);
 
-        if (storedItemsList) {
-          const parsedItemsList = JSON.parse(storedItemsList) as ShoppingItem[];
+        if (!storedItemsList) return;
 
-          setItems(parsedItemsList);
-        }
+        const parsedItemsList = parseJson(storedItemsList) as ShoppingItem[];
+
+        if (!parsedItemsList) return;
+
+        setItems(parsedItemsList);
       } catch (error) {
         console.warn('Failed to load shopping list from storage', error);
       } finally {
