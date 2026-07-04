@@ -3,7 +3,9 @@ import { FlatList, StyleSheet, View } from 'react-native';
 import { Theme } from '@src/common/constants';
 import AddItemForm from './content/AddItemForm';
 import EmptyState from './content/EmptyState';
+import ItemSeparator from './content/ItemSeparator';
 import ShoppingListItem from './content/ShoppingListItem';
+import { getItemKey } from './logic/utils/getItemKey';
 import type { ShoppingItem } from './types';
 
 export default function ShoppingListScreen() {
@@ -25,11 +27,11 @@ export default function ShoppingListScreen() {
 
       <FlatList
         data={items}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.list}
         renderItem={({ item }) => <ShoppingListItem item={item} onRemove={handleRemove} />}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
-        ListEmptyComponent={<EmptyState />}
+        keyExtractor={getItemKey} // <--- if keyExtractor is ommitted, FlatList automatically looks for id or key in the item
+        ListEmptyComponent={EmptyState}
+        ItemSeparatorComponent={ItemSeparator}
+        contentContainerStyle={styles.list}
       />
     </View>
   );
@@ -47,8 +49,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: Theme.spacing.md,
     paddingBottom: Theme.spacing.xl,
     flexGrow: 1,
-  },
-  separator: {
-    height: Theme.spacing.sm,
   },
 });

@@ -26,7 +26,7 @@ export default function AddItemForm(props: AddItemFormProps) {
         onSubmitEditing={handleAdd}
         returnKeyType='done'
         style={styles.input}
-        placeholder='Add an item…'
+        placeholder='Add an item...'
         placeholderTextColor={Theme.light.colors.base_50}
       />
 
