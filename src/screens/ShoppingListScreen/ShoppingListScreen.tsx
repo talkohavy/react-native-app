@@ -21,15 +21,16 @@ export default function ShoppingListScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.formWrapper}>
-        <AddItemForm onAdd={handleAdd} />
-      </View>
-
       <FlatList
         data={items}
         // biome-ignore lint/performance/noJsxPropsBind: no
         renderItem={({ item }) => <ShoppingListItem item={item} onRemove={handleRemove} />}
         keyExtractor={getItemKey} // <--- if keyExtractor is ommitted, FlatList automatically looks for id or key in the item
+        ListHeaderComponent={
+          <View style={styles.formWrapper}>
+            <AddItemForm onAdd={handleAdd} />
+          </View>
+        }
         ListEmptyComponent={EmptyState}
         ItemSeparatorComponent={ItemSeparator}
         contentContainerStyle={styles.list}
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: Theme.light.colors.base_0,
   },
   formWrapper: {
-    padding: Theme.spacing.md,
+    paddingVertical: Theme.spacing.md,
   },
   list: {
     paddingHorizontal: Theme.spacing.md,
