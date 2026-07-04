@@ -1,21 +1,13 @@
-import { useCallback } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Theme } from '@src/common/constants';
 import AddItemForm from './content/AddItemForm';
 import EmptyState from './content/EmptyState';
 import ItemSeparator from './content/ItemSeparator';
-import ShoppingListItem from './content/ShoppingListItem';
-import { useShoppingList } from './logic/hooks/useShoppingList';
+import { useShoppingListScreenLogic } from './logic/useShoppingListScreenLogic';
 import { getItemKey } from './logic/utils/getItemKey';
-import type { ShoppingItem } from './types';
 
 export default function ShoppingListScreen() {
-  const { items, addItem, handleRemove } = useShoppingList();
-
-  const renderItem = useCallback((props: { item: ShoppingItem }) => {
-    const { item } = props;
-    return <ShoppingListItem item={item} onRemove={handleRemove} />;
-  }, []);
+  const { items, addItem, renderItem } = useShoppingListScreenLogic();
 
   return (
     <View style={styles.container}>
