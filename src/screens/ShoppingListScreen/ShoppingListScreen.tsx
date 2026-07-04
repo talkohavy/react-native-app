@@ -1,4 +1,5 @@
-import { FlatList, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Animated, { LinearTransition } from 'react-native-reanimated';
 import { Theme } from '@src/common/constants';
 import AddItemForm from './content/AddItemForm';
 import EmptyState from './content/EmptyState';
@@ -11,10 +12,11 @@ export default function ShoppingListScreen() {
 
   return (
     <View style={styles.container}>
-      <FlatList
+      <Animated.FlatList
         data={items}
         renderItem={renderItem}
         keyExtractor={getItemKey} // <--- if keyExtractor is ommitted, FlatList automatically looks for id or key in the item
+        itemLayoutAnimation={LinearTransition}
         ListHeaderComponent={
           <View style={styles.formWrapper}>
             <AddItemForm onAdd={addItem} />
