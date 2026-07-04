@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
+import Animated, { FadeInUp, FadeOutLeft } from 'react-native-reanimated';
 import { Theme } from '@src/common/constants';
 import type { ShoppingItem } from '../../types';
 
@@ -21,13 +22,13 @@ export default function ShoppingListItem(props: ShoppingListItemProps) {
   );
 
   return (
-    <View style={styles.row}>
+    <Animated.View style={styles.row} entering={FadeInUp} exiting={FadeOutLeft}>
       <Text style={styles.name}>{item.name}</Text>
 
       <Pressable onPress={handleRemove} hitSlop={8} style={buttontStyle}>
         <Text style={styles.removeButtonText}>✕</Text>
       </Pressable>
-    </View>
+    </Animated.View>
   );
 }
 
