@@ -37,6 +37,12 @@
     ],
     "experiments": {
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3b30249e-9dc6-4709-bb4e-24ee1cb10719"
+      }
+    },
+    "owner": "luckylove"
   }
 }
