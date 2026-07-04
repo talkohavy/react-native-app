@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Theme } from '@src/common/constants';
 
@@ -18,6 +18,11 @@ export default function AddItemForm(props: AddItemFormProps) {
     setValue('');
   };
 
+  const buttonStyle = useCallback(
+    ({ pressed }: { pressed: boolean }) => [styles.addButton, pressed && styles.addButtonPressed],
+    [styles],
+  );
+
   return (
     <View style={styles.row}>
       <TextInput
@@ -30,8 +35,7 @@ export default function AddItemForm(props: AddItemFormProps) {
         placeholderTextColor={Theme.light.colors.base_50}
       />
 
-      {/* biome-ignore lint/performance/noJsxPropsBind: no */}
-      <Pressable onPress={handleAdd} style={({ pressed }) => [styles.addButton, pressed && styles.addButtonPressed]}>
+      <Pressable onPress={handleAdd} style={buttonStyle}>
         <Text style={styles.addButtonText}>Add</Text>
       </Pressable>
     </View>

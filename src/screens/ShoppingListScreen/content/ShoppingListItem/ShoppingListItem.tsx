@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Theme } from '@src/common/constants';
-import type { ShoppingItem } from '../types';
+import type { ShoppingItem } from '../../types';
 
 type ShoppingListItemProps = {
   item: ShoppingItem;

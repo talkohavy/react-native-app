@@ -4,9 +4,9 @@ import type { RootStack } from './App';
 type RootStackParamList = StaticParamList<typeof RootStack>;
 
 declare global {
+  // biome-ignore lint/style/noNamespace: no
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {
-      _no_key: never;
-    }
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+    interface RootParamList extends RootStackParamList {}
   }
 }
