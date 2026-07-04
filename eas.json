@@ -4,15 +4,47 @@
     "appVersionSource": "remote"
   },
   "build": {
+    "base": {
+      // Enables corepack so builds use the exact package manager version
+      // pinned in package.json's "packageManager" field (pnpm@11.5.2),
+      // instead of whatever pnpm version the build image ships with.
+      "corepack": true
+    },
     "development": {
+      "extends": "base", // inherit the "corepack" setting above
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "android": {
+        // "apk" is what "distribution": "internal" already defaults to
+        // (AABs can't be installed directly on a device); spelled out
+        // explicitly here for clarity.
+        "buildType": "apk"
+      },
+      "ios": {
+        // Builds for the iOS Simulator instead of a physical device, so no
+        // Apple credentials/provisioning are needed for local dev testing.
+        "simulator": true
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "extends": "base", // inherit the "corepack" setting above
+      "distribution": "internal",
+      "android": {
+        // "apk" is what "distribution": "internal" already defaults to
+        // (AABs can't be installed directly on a device); spelled out
+        // explicitly here for clarity.
+        "buildType": "apk"
+      }
     },
     "production": {
-      "autoIncrement": true
+      "extends": "base", // inherit the "corepack" setting above
+      "autoIncrement": true,
+      "android": {
+        // "app-bundle" is the actual EAS Build default for buildType
+        // (produces an .aab for Play Store submission); spelled out
+        // explicitly here for clarity.
+        "buildType": "app-bundle"
+      }
     }
   },
   "submit": {
