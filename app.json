@@ -22,7 +22,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.luckylove.reactnativeapp"
+      "package": "com.luckylove.reactnativeapp",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "output": "single",
