@@ -1,6 +1,7 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import NotificationProvider from './providers/NotificationProvider';
 import { allRoutes } from './routes';
 import HomeScreen from './screens/HomeScreen';
 
@@ -25,7 +26,9 @@ const Navigation = createStaticNavigation(RootStack);
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Navigation />
+      <NotificationProvider>
+        <Navigation />
+      </NotificationProvider>
     </GestureHandlerRootView>
   );
 }

@@ -1,4 +1,5 @@
 import AboutScreen from './screens/AboutScreen';
+import PushNotificationsScreen from './screens/PushNotificationsScreen';
 // import HomeScreen from './screens/HomeScreen';
 import ShoppingListScreen from './screens/ShoppingListScreen';
 import ShowcaseScreen from './screens/ShowcaseScreen';
@@ -43,6 +44,13 @@ export const routesArr: Route[] = [
     description: 'Add & remove items from your list',
     emoji: '🛒',
     component: ShoppingListScreen,
+  },
+  {
+    name: 'PushNotifications',
+    title: 'Push Notifications',
+    description: 'Send push notifications',
+    emoji: '📱',
+    component: PushNotificationsScreen,
   },
 ];
 
