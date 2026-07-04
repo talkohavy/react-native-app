@@ -2,6 +2,14 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Prerequisites
+
+1. Install `eas`
+
+```bash
+brew install eas-cli
+```
+
 ## Get started
 
 1. Install dependencies
