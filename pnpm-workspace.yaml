@@ -1,0 +1,5 @@
+minimumReleaseAgeExclude:
+  - '@expo/schema-utils@56.0.2'
+  - expo-dev-client@56.0.22
+  - expo-dev-launcher@56.0.23
+  - expo-dev-menu@56.0.19
