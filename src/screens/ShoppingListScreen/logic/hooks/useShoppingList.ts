@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { parseJson } from '@src/common/utils/parseJson';
+import { useInitialLoadFromStorageShoppingList } from './useInitialLoadFromStorageShoppingList';
 import type { ShoppingItem } from '../../types';
 
 const STORAGE_KEY = 'shopping-list-items';
@@ -10,27 +10,7 @@ export function useShoppingList() {
   const [items, setItems] = useState<ShoppingItem[]>([]);
   const hasLoadedRef = useRef(false);
 
-  useEffect(() => {
-    async function loadItemsFromStorage() {
-      try {
-        const storedItemsList = await AsyncStorage.getItem(STORAGE_KEY);
-
-        if (!storedItemsList) return;
-
-        const parsedItemsList = parseJson(storedItemsList) as ShoppingItem[];
-
-        if (!parsedItemsList) return;
-
-        setItems(parsedItemsList);
-      } catch (error) {
-        console.warn('Failed to load shopping list from storage', error);
-      } finally {
-        hasLoadedRef.current = true;
-      }
-    }
-
-    loadItemsFromStorage();
-  }, []);
+  useInitialLoadFromStorageShoppingList({ setItems, hasLoadedRef });
 
   const addItem = useCallback((name: string) => {
     setItems((prevItems) => {
@@ -44,7 +24,7 @@ export function useShoppingList() {
     });
   }, []);
 
-  const removeItem = useCallback((id: string) => {
+  const removeItem = (id: string) => {
     setItems((prevItems) => {
       const updatedItemsList = prevItems.filter((item) => item.id !== id);
 
@@ -52,7 +32,7 @@ export function useShoppingList() {
 
       return updatedItemsList;
     });
-  }, []);
+  };
 
   const handleRemove = (id: string) => {
     const title = 'Remove item';

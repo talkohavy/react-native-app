@@ -89,7 +89,8 @@
         "noDefaultExport": "off",
         "useBlockStatements": "off",
         "noJsxLiterals": "off",
-        "noTernary": "off"
+        "noTernary": "off",
+        "useNamingConvention": "off"
       }
     }
   },
