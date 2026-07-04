@@ -27,6 +27,7 @@ export default function ShoppingListScreen() {
 
       <FlatList
         data={items}
+        // biome-ignore lint/performance/noJsxPropsBind: no
         renderItem={({ item }) => <ShoppingListItem item={item} onRemove={handleRemove} />}
         keyExtractor={getItemKey} // <--- if keyExtractor is ommitted, FlatList automatically looks for id or key in the item
         ListEmptyComponent={EmptyState}

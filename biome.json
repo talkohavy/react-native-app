@@ -39,7 +39,9 @@
         "noUnusedVariables": "off",
         "noInnerDeclarations": "off",
         "noVoidTypeReturn": "off",
-        "noUnusedPrivateClassMembers": "off"
+        "noUnusedPrivateClassMembers": "off",
+        "useQwikValidLexicalScope": "off",
+        "noUndeclaredDependencies": "off"
       },
       "complexity": {
         "noForEach": "off",
@@ -48,7 +50,9 @@
         "noStaticOnlyClass": "off"
       },
       "performance": {
-        "noDelete": "off"
+        "noDelete": "off",
+        "noReExportAll": "off",
+        "noBarrelFile": "off"
       },
       "security": {
         "noDangerouslySetInnerHtml": "off"
@@ -75,7 +79,11 @@
         "noUnusedTemplateLiteral": "error",
         "useNumberNamespace": "error",
         "noInferrableTypes": "error",
-        "noUselessElse": "error"
+        "noUselessElse": "error",
+        "useExportsLast": "off",
+        "noDefaultExport": "off",
+        "useBlockStatements": "off",
+        "noJsxLiterals": "off"
       }
     }
   },

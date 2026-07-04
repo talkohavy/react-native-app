@@ -30,6 +30,7 @@ export default function AddItemForm(props: AddItemFormProps) {
         placeholderTextColor={Theme.light.colors.base_50}
       />
 
+      {/* biome-ignore lint/performance/noJsxPropsBind: no */}
       <Pressable onPress={handleAdd} style={({ pressed }) => [styles.addButton, pressed && styles.addButtonPressed]}>
         <Text style={styles.addButtonText}>Add</Text>
       </Pressable>
