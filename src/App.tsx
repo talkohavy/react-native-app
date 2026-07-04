@@ -1,12 +1,8 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Routes } from './routes';
+import { allRoutes } from './routes';
 import HomeScreen from './screens/HomeScreen';
-
-const experimentRoutes = Object.fromEntries(
-  Routes.map((screen) => [screen.name, { screen: screen.component, options: { title: screen.title } }]),
-);
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
@@ -18,7 +14,7 @@ const RootStack = createNativeStackNavigator({
       screen: HomeScreen,
       options: { title: 'Playground' },
     },
-    ...experimentRoutes,
+    ...allRoutes,
   },
 });
 
