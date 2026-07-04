@@ -8,7 +8,7 @@ const experimentRoutes = Object.fromEntries(
   Routes.map((screen) => [screen.name, { screen: screen.component, options: { title: screen.title } }]),
 );
 
-export const RootStack = createNativeStackNavigator({
+const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
   screenOptions: {
     headerTintColor: '#8A5CF6',
@@ -21,6 +21,8 @@ export const RootStack = createNativeStackNavigator({
     ...experimentRoutes,
   },
 });
+
+export type TypeOfRootStack = typeof RootStack;
 
 const Navigation = createStaticNavigation(RootStack);
 
