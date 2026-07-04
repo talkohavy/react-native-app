@@ -31,7 +31,8 @@
         "noFocusedTests": "off",
         "noTsIgnore": "off",
         "noThenProperty": "off",
-        "useIterableCallbackReturn": "off"
+        "useIterableCallbackReturn": "off",
+        "noConsole": "off"
       },
       "correctness": {
         "useExhaustiveDependencies": "off",
