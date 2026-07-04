@@ -19,7 +19,8 @@
     "web": "expo start --web",
     "run:android": "expo run:android",
     "run:ios": "expo run:ios",
-    "build:prod": "eas build --platform all --auto-submit",
+    "build:release": "eas build --platform all --profile production",
+    "submit:release": "eas submit --platform all",
     "lint:expo": "expo lint"
   },
   "dependencies": {
