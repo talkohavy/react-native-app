@@ -1,5 +1,5 @@
 import { Text, View, Button } from 'react-native';
-import { setNotificationHandler } from 'expo-notifications';
+import { scheduleNotificationAsync, setNotificationHandler } from 'expo-notifications';
 import { sendPushNotification } from '@src/common/utils/sendPushNotification';
 import { useNotification } from '@src/providers/NotificationProvider';
 
@@ -18,7 +18,20 @@ export default function PushNotificationsScreen() {
   const handleSendPushNotification = async () => {
     if (!expoPushToken) return;
 
+    // Immediate notification:
     await sendPushNotification({ token: expoPushToken, title: 'Test Title', body: 'Test Body' });
+
+    // Scheduled notification:
+    scheduleNotificationAsync({
+      content: {
+        title: 'Test Title',
+        body: 'Test Body',
+      },
+      trigger: {
+        channelId: 'default',
+        seconds: 5,
+      },
+    });
   };
 
   return (
