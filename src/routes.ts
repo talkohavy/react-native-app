@@ -1,4 +1,5 @@
 import AboutScreen from './screens/AboutScreen';
+import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
 import PushNotificationsScreen from './screens/PushNotificationsScreen';
 // import HomeScreen from './screens/HomeScreen';
 import ShoppingListScreen from './screens/ShoppingListScreen';
@@ -51,6 +52,13 @@ export const routesArr: Route[] = [
     description: 'Send push notifications',
     emoji: '📱',
     component: PushNotificationsScreen,
+  },
+  {
+    name: 'Loading',
+    title: 'Loading',
+    description: 'Loading screen',
+    emoji: '🔄',
+    component: LoadingScreen,
   },
 ];
 
