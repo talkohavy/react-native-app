@@ -4,11 +4,18 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Prerequisites
 
-1. Install `eas`
+1. Install `Android Studio`
+2. Install `eas`
 
 ```bash
 brew install eas-cli
 ```
+
+3. Install `Watchman`
+4. Install `Java`
+5. Install `XCode`
+
+This one is for developing in IOS. You need a Mac device. Download for `XCode` is available in the App sore.
 
 ## Get started
 
