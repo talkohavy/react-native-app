@@ -17,18 +17,24 @@ brew install eas-cli
 
 This one is for developing in IOS. You need a Mac device. Download for `XCode` is available in the App sore.
 
+6. Enable `pnpm` (this project's package manager, pinned via `packageManager`)
+
+```bash
+corepack enable
+```
+
 ## Get started
 
 1. Install dependencies
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. Start the app
 
    ```bash
-   npx expo start
+   pnpm start
    ```
 
 In the output, you'll find options to open the app in a
