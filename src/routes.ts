@@ -4,6 +4,7 @@ import PushNotificationsScreen from './screens/PushNotificationsScreen';
 // import HomeScreen from './screens/HomeScreen';
 import ShoppingListScreen from './screens/ShoppingListScreen';
 import ShowcaseScreen from './screens/ShowcaseScreen';
+import ZustandCounterScreen from './screens/ZustandCounterScreen';
 import type { Route } from './common/types';
 
 /**
@@ -59,6 +60,13 @@ export const routesArr: Route[] = [
     description: 'Loading screen',
     emoji: '🔄',
     component: LoadingScreen,
+  },
+  {
+    name: 'ZustandCounter',
+    title: 'Zustand Counter',
+    description: 'Zustand store persisted with AsyncStorage',
+    emoji: '🐻',
+    component: ZustandCounterScreen,
   },
 ];
 
