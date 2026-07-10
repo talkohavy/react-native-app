@@ -116,6 +116,16 @@ const styles = StyleSheet.create({
     padding: Theme.spacing.md,
     fontSize: Theme.fontSizes.md,
     color: Theme.light.colors.base_100,
+    // Works only on IOS:
+    shadowColor: Theme.light.colors.base_100,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    // Works only on Android:
+    elevation: 1,
   },
   submitButton: {
     backgroundColor: Theme.light.colors.base_100,
