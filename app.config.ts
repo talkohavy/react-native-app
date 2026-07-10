@@ -34,6 +34,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     predictiveBackGestureEnabled: false,
     package: 'com.luckylove.reactnativeapp',
     googleServicesFile: './google-services.json',
+    softwareKeyboardLayoutMode: 'resize',
   },
   web: {
     output: 'single',
