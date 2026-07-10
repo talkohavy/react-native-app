@@ -1,4 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Theme } from '@src/common/constants';
 import { routesArr } from '@src/routes';
 import { useHomeScreenLogic } from './logic/useHomeScreenLogic';
@@ -8,24 +9,29 @@ export default function HomeScreen() {
   const { renderItem } = useHomeScreenLogic();
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={routesArr}
-        keyExtractor={getItemName}
-        contentContainerStyle={styles.list}
-        renderItem={renderItem}
-        ListHeaderComponent={
-          <View style={styles.header}>
-            <Text style={styles.title}>Playground</Text>
-            <Text style={styles.subtitle}>Pick a screen to open</Text>
-          </View>
-        }
-      />
-    </View>
+    <SafeAreaView style={styles.flex} edges={['top', 'bottom', 'left', 'right']}>
+      <View style={styles.container}>
+        <FlatList
+          data={routesArr}
+          keyExtractor={getItemName}
+          contentContainerStyle={styles.list}
+          renderItem={renderItem}
+          ListHeaderComponent={
+            <View style={styles.header}>
+              <Text style={styles.title}>Playground</Text>
+              <Text style={styles.subtitle}>Pick a screen to open</Text>
+            </View>
+          }
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  flex: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: Theme.light.colors.base_0,
