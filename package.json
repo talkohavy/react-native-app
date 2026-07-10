@@ -20,6 +20,7 @@
     "run:android": "expo run:android",
     "run:ios": "expo run:ios",
     "build:apk": "eas build --platform android --profile preview",
+    "build:expo-dev": "eas build --platform android --profile development",
     "build:play-store": "eas build --platform android --profile production",
     "submit:play-store": "eas submit --platform android",
     "lint:expo": "expo lint"
