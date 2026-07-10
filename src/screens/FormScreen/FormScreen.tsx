@@ -1,14 +1,4 @@
-import {
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { Image, KeyboardAvoidingView, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Theme } from '@src/common/constants';
 import Modal from '@src/components/Modal/Modal';
@@ -33,7 +23,7 @@ export default function FormScreen() {
 
   return (
     <SafeAreaView style={styles.flex} edges={['top', 'bottom', 'left', 'right']}>
-      <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <KeyboardAvoidingView style={styles.flex} behavior='padding'>
         <ScrollView style={styles.flex} contentContainerStyle={styles.content} keyboardShouldPersistTaps='handled'>
           <Image source={cuteImage} style={styles.image} resizeMode='contain' />
 
