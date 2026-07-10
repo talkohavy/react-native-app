@@ -1,6 +1,7 @@
 import AboutScreen from './screens/AboutScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
 import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
+import ModalScreen from './screens/ModalScreen';
 import PushNotificationsScreen from './screens/PushNotificationsScreen';
 // import HomeScreen from './screens/HomeScreen';
 import ShoppingListScreen from './screens/ShoppingListScreen';
@@ -75,6 +76,13 @@ export const routesArr: Route[] = [
     description: 'Placeholders, transitions & caching with expo-image',
     emoji: '🖼️',
     component: ExpoImageScreen,
+  },
+  {
+    name: 'Modal',
+    title: 'Modal',
+    description: 'Custom Modal component: basic, action sheet & confirm dialog',
+    emoji: '🪟',
+    component: ModalScreen,
   },
 ];
 
