@@ -1,5 +1,6 @@
 import AboutScreen from './screens/AboutScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
+import FormScreen from './screens/FormScreen';
 import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
 import ModalScreen from './screens/ModalScreen';
 import PushNotificationsScreen from './screens/PushNotificationsScreen';
@@ -83,6 +84,13 @@ export const routesArr: Route[] = [
     description: 'Custom Modal component: basic, action sheet & confirm dialog',
     emoji: '🪟',
     component: ModalScreen,
+  },
+  {
+    name: 'Form',
+    title: 'Form',
+    description: 'Basic form with string and number inputs',
+    emoji: '📝',
+    component: FormScreen,
   },
 ];
 
