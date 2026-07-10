@@ -1,4 +1,5 @@
 import AboutScreen from './screens/AboutScreen';
+import ExpoImageScreen from './screens/ExpoImageScreen';
 import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
 import PushNotificationsScreen from './screens/PushNotificationsScreen';
 // import HomeScreen from './screens/HomeScreen';
@@ -67,6 +68,13 @@ export const routesArr: Route[] = [
     description: 'Zustand store persisted with AsyncStorage',
     emoji: '🐻',
     component: ZustandCounterScreen,
+  },
+  {
+    name: 'ExpoImage',
+    title: 'Expo Image',
+    description: 'Placeholders, transitions & caching with expo-image',
+    emoji: '🖼️',
+    component: ExpoImageScreen,
   },
 ];
 
