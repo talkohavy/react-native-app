@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { Alert } from 'react-native';
 import type { TextInput } from 'react-native';
 
 type Submission = { name: string; amount: number };
@@ -12,7 +13,22 @@ export function useFormScreenLogic() {
   const handleSubmit = () => {
     const trimmedName = name.trim();
     const parsedAmount = Number(amount);
-    if (!trimmedName || !amount || isNaN(parsedAmount)) return;
+
+    if (!trimmedName && !amount.trim()) {
+      Alert.alert('Missing fields', 'Please fill in both Name and Amount.');
+      return;
+    }
+
+    if (!trimmedName) {
+      Alert.alert('Missing field', 'Please enter a Name.');
+      return;
+    }
+
+    if (!amount.trim() || isNaN(parsedAmount)) {
+      Alert.alert('Missing field', 'Please enter a valid Amount.');
+      return;
+    }
+
     setSubmission({ name: trimmedName, amount: parsedAmount });
     setName('');
     setAmount('');
