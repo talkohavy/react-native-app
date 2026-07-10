@@ -19,7 +19,7 @@
     "web": "expo start --web",
     "run:android": "expo run:android",
     "run:ios": "expo run:ios",
-    "build:apk": "eas build --platform android --profile production",
+    "build:apk": "eas build --platform android --profile preview",
     "build:play-store": "eas build --platform android --profile production",
     "submit:play-store": "eas submit --platform android",
     "lint:expo": "expo lint"
