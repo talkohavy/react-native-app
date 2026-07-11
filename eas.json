@@ -10,6 +10,9 @@
       // instead of whatever pnpm version the build image ships with.
       "corepack": true
     },
+    /**
+     * Development is for creating builds for local development testing
+     */
     "development": {
       "extends": "base", // inherit the "corepack" setting above
       "developmentClient": true,
@@ -26,6 +29,10 @@
         "simulator": true
       }
     },
+    /**
+     * Preview is for creating production builds for testing
+     * Creates an APK file, which can be installed on a physical device.
+     */
     "preview": {
       "extends": "base", // inherit the "corepack" setting above
       "distribution": "internal",
@@ -36,6 +43,10 @@
         "buildType": "apk"
       }
     },
+    /**
+     * Production is for creating production builds for submission to the Play Store
+     * Creates an AAB file, which can be submitted to the Play Store.
+     */
     "production": {
       "extends": "base", // inherit the "corepack" setting above
       "autoIncrement": true,
