@@ -73,7 +73,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       {
         backgroundColor: '#208AEF',
         android: {
-          image: './assets/images/splash-icon.png',
+          image: './assets/images/splash.png',
           imageWidth: 76,
         },
       },
