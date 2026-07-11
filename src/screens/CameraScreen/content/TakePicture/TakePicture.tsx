@@ -21,7 +21,7 @@ export default function TakePicture(props: TakePictureProps) {
         style={styles.camera}
         facing={facing}
         animateShutter
-        flash='on'
+        // flash='on'
         // enableTorch
         // zoom={1}
         // mode='video'
