@@ -6,7 +6,12 @@ export function useCameraScreenLogic() {
   const [permission, requestPermission] = useCameraPermissions();
   const [photoUri, setPhotoUri] = useState<null | string>(null);
   const [isTakingPhoto, setIsTakingPhoto] = useState(false);
+  const [facing, setFacing] = useState<'front' | 'back'>('front');
   const cameraRef = useRef<CameraView>(null);
+
+  const handleFlipCamera = useCallback(() => {
+    setFacing((prev) => (prev === 'front' ? 'back' : 'front'));
+  }, []);
 
   const handleTakePhoto = useCallback(async () => {
     if (!cameraRef.current || isTakingPhoto) return;
@@ -37,8 +42,10 @@ export function useCameraScreenLogic() {
     requestPermission,
     photoUri,
     isTakingPhoto,
+    facing,
     cameraRef,
     handleTakePhoto,
+    handleFlipCamera,
     handleRetake,
     openPhoneSettings,
   };

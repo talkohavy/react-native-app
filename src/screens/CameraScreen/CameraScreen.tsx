@@ -10,8 +10,10 @@ export default function CameraScreen() {
     requestPermission,
     photoUri,
     isTakingPhoto,
+    facing,
     cameraRef,
     handleTakePhoto,
+    handleFlipCamera,
     handleRetake,
     openPhoneSettings,
   } = useCameraScreenLogic();
@@ -34,5 +36,13 @@ export default function CameraScreen() {
     return <PictureTaken photoUri={photoUri} handleRetake={handleRetake} />;
   }
 
-  return <TakePicture cameraRef={cameraRef} handleTakePhoto={handleTakePhoto} isTakingPhoto={isTakingPhoto} />;
+  return (
+    <TakePicture
+      cameraRef={cameraRef}
+      facing={facing}
+      handleTakePhoto={handleTakePhoto}
+      handleFlipCamera={handleFlipCamera}
+      isTakingPhoto={isTakingPhoto}
+    />
+  );
 }

@@ -1,20 +1,26 @@
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CameraView } from 'expo-camera';
 import { Theme } from '@src/common/constants';
 
 type TakePictureProps = {
   cameraRef: React.RefObject<CameraView | null>;
+  facing: 'front' | 'back';
   handleTakePhoto: () => void;
+  handleFlipCamera: () => void;
   isTakingPhoto: boolean;
 };
 
 export default function TakePicture(props: TakePictureProps) {
-  const { cameraRef, handleTakePhoto, isTakingPhoto } = props;
+  const { cameraRef, facing, handleTakePhoto, handleFlipCamera, isTakingPhoto } = props;
 
   return (
-    <View style={styles.flex}>
-      <CameraView ref={cameraRef} style={styles.camera} facing='front' />
+    <SafeAreaView style={styles.flex} edges={['top', 'bottom', 'left', 'right']}>
+      <CameraView ref={cameraRef} style={styles.camera} facing={facing} />
+
+      <Pressable onPress={handleFlipCamera} style={styles.flipButton}>
+        <Text style={styles.flipIcon}>⟳</Text>
+      </Pressable>
 
       <SafeAreaView style={styles.controls} edges={['bottom']}>
         <Pressable
@@ -25,7 +31,7 @@ export default function TakePicture(props: TakePictureProps) {
           <View style={styles.shutterButton} />
         </Pressable>
       </SafeAreaView>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -63,5 +69,24 @@ const styles = StyleSheet.create({
     height: 58,
     borderRadius: 29,
     backgroundColor: Theme.light.colors.base_0,
+  },
+  flipButton: {
+    position: 'absolute',
+    right: Theme.spacing.xl,
+    top: Theme.spacing.xl * 2,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  flipIcon: {
+    color: Theme.light.colors.base_0,
+    fontSize: 26,
+    lineHeight: 26,
+    includeFontPadding: false,
+    marginTop: -8,
+    marginLeft: 5,
   },
 });
