@@ -19,7 +19,10 @@ export function useCameraScreenLogic() {
     setIsTakingPhoto(true);
 
     try {
-      const photo = await cameraRef.current.takePictureAsync({ quality: 0.8 });
+      const photo = await cameraRef.current.takePictureAsync({
+        quality: 0.8, // <--- 1 is highest quality
+        // isImageMirror: false, // <--- even if set to `false`, during the photo capture, the image is still mirrored.
+      });
 
       if (photo) {
         setPhotoUri(photo.uri);

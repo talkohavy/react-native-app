@@ -16,7 +16,17 @@ export default function TakePicture(props: TakePictureProps) {
 
   return (
     <SafeAreaView style={styles.flex} edges={['top', 'bottom', 'left', 'right']}>
-      <CameraView ref={cameraRef} style={styles.camera} facing={facing} />
+      <CameraView
+        ref={cameraRef}
+        style={styles.camera}
+        facing={facing}
+        animateShutter
+        flash='on'
+        // enableTorch
+        // zoom={1}
+        // mode='video'
+        // mute
+      />
 
       {Platform.OS !== 'web' && (
         <Pressable onPress={handleFlipCamera} style={styles.flipButton}>
