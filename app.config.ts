@@ -43,6 +43,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   plugins: [
     'expo-notifications',
     [
+      'expo-image-picker',
+      {
+        photosPermission: 'Allow $(PRODUCT_NAME) to access your photos to let you pick images.',
+        microphonePermission: false,
+      },
+    ],
+    [
       'expo-camera',
       {
         cameraPermission: 'Allow $(PRODUCT_NAME) to access your camera to take photos.',

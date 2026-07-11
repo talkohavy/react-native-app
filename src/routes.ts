@@ -2,6 +2,7 @@ import AboutScreen from './screens/AboutScreen';
 import CameraScreen from './screens/CameraScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
 import FormScreen from './screens/FormScreen';
+import ImagePickerScreen from './screens/ImagePickerScreen';
 import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
 import ModalScreen from './screens/ModalScreen';
 import PushNotificationsScreen from './screens/PushNotificationsScreen';
@@ -100,6 +101,13 @@ export const routesArr: Route[] = [
     description: 'Take a photo with your device camera',
     emoji: '📷',
     component: CameraScreen,
+  },
+  {
+    name: 'ImagePicker',
+    title: 'Image Picker',
+    description: 'Pick an image and inspect its metadata',
+    emoji: '🖼️',
+    component: ImagePickerScreen,
   },
 ];
 
