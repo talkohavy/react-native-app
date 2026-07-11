@@ -8,7 +8,6 @@ export function useHomeScreenLogic() {
   const renderItem = ({ item }: { item: Route }) => {
     const onLinkClick = () => navigation.navigate(item.name);
 
-    // biome-ignore lint/performance/noJsxPropsBind: no
     return <ScreenLink item={item} onPress={onLinkClick} />;
   };
 
