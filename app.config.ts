@@ -2,7 +2,7 @@ import type { ConfigContext, ExpoConfig } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: 'react-native-app',
+  name: 'ReactNativeApp',
   slug: 'react-native-app',
   version: '1.0.0',
   orientation: 'portrait',
