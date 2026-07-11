@@ -8,7 +8,16 @@
       // Enables corepack so builds use the exact package manager version
       // pinned in package.json's "packageManager" field (pnpm@11.5.2),
       // instead of whatever pnpm version the build image ships with.
-      "corepack": true
+      "corepack": true,
+      "env": {
+        /**
+         * Enable Gradle's build cache on EAS: task outputs (compiled
+         * classes/dex/native) are stored and reused across builds. First build
+         * populates it; subsequent builds restore and skip unchanged tasks
+         * (Expo reports ~50% faster). Keyed off the pnpm lockfile hash.
+         */
+        "EAS_GRADLE_CACHE": "1"
+      }
     },
     /**
      * Development is for creating builds for local development testing

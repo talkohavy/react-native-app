@@ -41,6 +41,17 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     favicon: './assets/images/favicon.png',
   },
   plugins: [
+    [
+      'expo-build-properties',
+      {
+        android: {
+          // SDK 56 (experimental): precompiled headers for the C++ codegen of
+          // every autolinked native module. Biggest win for our heavy native
+          // graph (reanimated/worklets/screens) — cuts the CMake compile step.
+          usePrecompiledHeaders: true,
+        },
+      },
+    ],
     'expo-notifications',
     [
       'expo-image-picker',
