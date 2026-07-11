@@ -18,4 +18,8 @@ export type Route = {
    */
   emoji: string;
   component: ComponentType;
+  /**
+   * @default true
+   */
+  headerShown?: boolean;
 };

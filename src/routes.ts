@@ -99,17 +99,25 @@ export const routesArr: Route[] = [
     description: 'Take a photo with your device camera',
     emoji: '📷',
     component: CameraScreen,
+    headerShown: false,
   },
 ];
 
 export const allRoutes = Object.fromEntries(
-  routesArr.map((screen) => [
-    screen.name,
-    {
-      screen: screen.component,
-      options: {
-        title: screen.title,
+  routesArr.map((screen) => {
+    const { name, title, description, emoji, component, headerShown = true } = screen;
+
+    return [
+      name,
+      {
+        screen: component,
+        options: {
+          title,
+          headerShown,
+          description,
+          emoji,
+        },
       },
-    },
-  ]),
+    ];
+  }),
 );
