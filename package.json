@@ -11,6 +11,7 @@
     "format": "biome format src",
     "format:fix": "biome format --verbose ./src --write",
     "format:prettier": "prettier . --check --config .prettierrc.mjs --ignore-path .prettierignore",
+    "check-updates": "npx expo install --check",
     "test": "jest",
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
