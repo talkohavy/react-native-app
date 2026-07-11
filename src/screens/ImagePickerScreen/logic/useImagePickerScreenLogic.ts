@@ -16,6 +16,9 @@ export function useImagePickerScreenLogic() {
         quality: 1,
         allowsEditing: false,
         exif: true,
+        // defaultTab:'photos',
+        // videoQuality: ImagePicker.UIImagePickerControllerQualityType.High,
+        // aspect: [1, 1],
       });
 
       if (!result.canceled && result.assets.length > 0) {
