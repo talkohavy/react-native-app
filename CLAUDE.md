@@ -51,7 +51,7 @@ Entry: `src/index.ts` → `registerRootComponent(App)` → `src/App.tsx`. (Not E
 
 ### Navigation — static config + a route registry
 
-- `src/App.tsx` builds a `createNativeStackNavigator({...})` with `Home` as the initial route, then spreads `allRoutes` from `src/routes.ts`. It's wrapped in `createStaticNavigation` and rendered inside `GestureHandlerRootView` → `SuspenseUntilReady` → `NotificationProvider`.
+- `src/App.tsx` builds a `createNativeStackNavigator({...})` with `Home` as the initial route, then spreads `routesObj` from `src/routes.ts`. It's wrapped in `createStaticNavigation` and rendered inside `GestureHandlerRootView` → `SuspenseUntilReady` → `NotificationProvider`.
 - **`src/routes.ts` is the single source of truth for every screen.** `routesArr` (typed `Route[]`) drives both the Home list UI and the navigator. **To add a screen:** build it under `src/screens/<Name>/`, then add one entry to `routesArr` — it auto-appears in the Home list and becomes navigable. No other wiring.
 - Route-name type safety flows through `src/global.d.ts`, which augments `ReactNavigation.RootParamList` from `TypeOfRootStack` (exported by `App.tsx`). This is what makes `navigation.navigate('Showcase')` type-check against the actual route set.
 

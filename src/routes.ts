@@ -2,11 +2,11 @@ import AboutScreen from './screens/AboutScreen';
 import CameraScreen from './screens/CameraScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
 import FormScreen from './screens/FormScreen';
+import HomeScreen from './screens/HomeScreen';
 import ImagePickerScreen from './screens/ImagePickerScreen';
 import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
 import ModalScreen from './screens/ModalScreen';
 import PushNotificationsScreen from './screens/PushNotificationsScreen';
-// import HomeScreen from './screens/HomeScreen';
 import ShoppingListScreen from './screens/ShoppingListScreen';
 import ShowcaseScreen from './screens/ShowcaseScreen';
 import ZustandCounterScreen from './screens/ZustandCounterScreen';
@@ -24,13 +24,15 @@ import type { Route } from './common/types';
  * calls against the exact set of route names below.
  */
 export const routesArr: Route[] = [
-  // {
-  //   name: 'Home',
-  //   title: 'Home',
-  //   description: 'Home',
-  //   emoji: '🏠',
-  //   component: HomeScreen,
-  // },
+  {
+    name: 'Home',
+    title: 'Home',
+    description: 'Home',
+    emoji: '🏠',
+    component: HomeScreen,
+    headerShown: false,
+    showAsLink: false,
+  },
   {
     name: 'Showcase',
     title: 'Showcase',
@@ -111,7 +113,7 @@ export const routesArr: Route[] = [
   },
 ];
 
-export const allRoutes = Object.fromEntries(
+export const routesObj = Object.fromEntries(
   routesArr.map((screen) => {
     const { name, title, description, emoji, component, headerShown = false } = screen;
 

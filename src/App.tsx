@@ -5,8 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
 import SuspenseUntilReady from './components/SuspenseUntilReady';
 import NotificationProvider from './providers/NotificationProvider';
-import { allRoutes } from './routes';
-import HomeScreen from './screens/HomeScreen';
+import { routesObj } from './routes';
 import LoadingScreen from './screens/LoadingScreen';
 
 // Keep the native splash screen up until our own JS content (the LoadingSpinner) is
@@ -19,11 +18,7 @@ const RootStack = createNativeStackNavigator({
     headerTintColor: '#8A5CF6',
   },
   screens: {
-    Home: {
-      screen: HomeScreen,
-      options: { headerShown: false },
-    },
-    ...allRoutes,
+    ...routesObj,
   },
 });
 

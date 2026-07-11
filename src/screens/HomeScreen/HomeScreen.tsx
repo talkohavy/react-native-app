@@ -12,7 +12,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.flex} edges={['top', 'bottom', 'left', 'right']}>
       <View style={styles.container}>
         <FlatList
-          data={routesArr}
+          data={routesArr.filter(({ showAsLink = true }) => Boolean(showAsLink))}
           keyExtractor={getItemName}
           contentContainerStyle={styles.list}
           renderItem={renderItem}
