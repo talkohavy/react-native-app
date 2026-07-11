@@ -71,8 +71,8 @@ export function usePictureTakenLogic() {
       savedTranslateY.value = 0;
     });
 
-  // eslint-disable-next-line new-cap -- Gesture.Exclusive / Gesture.Simultaneous are builder factories, not constructors
-  const composedGesture = Gesture.Exclusive(doubleTapGesture, Gesture.Simultaneous(pinchGesture, panGesture));
+  // eslint-disable-next-line new-cap -- Gesture.Simultaneous is a builder factory, not a constructor
+  const composedGesture = Gesture.Simultaneous(doubleTapGesture, pinchGesture, panGesture);
 
   const animatedImageStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: translateX.value }, { translateY: translateY.value }, { scale: scale.value }],
