@@ -1,11 +1,12 @@
 import { useCallback } from 'react';
 import { Alert } from 'react-native';
 import BookCard from '../../content/BookCard';
+import type { NavigationProp } from '@react-navigation/native';
 import type { Book } from '@src/store/books';
 
 type UseBookItemProps = {
   deleteBook: (id: string) => void;
-  navigation: any;
+  navigation: NavigationProp<ReactNavigation.RootParamList>;
 };
 
 export function useBookItem(props: UseBookItemProps) {
