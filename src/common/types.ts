@@ -19,7 +19,7 @@ export type Route = {
   emoji: string;
   component: ComponentType;
   /**
-   * @default true
+   * @default false
    */
   headerShown?: boolean;
 };

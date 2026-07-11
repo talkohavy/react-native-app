@@ -43,6 +43,7 @@ export const routesArr: Route[] = [
     description: 'What this app is about',
     emoji: 'ℹ️',
     component: AboutScreen,
+    headerShown: true,
   },
   {
     name: 'ShoppingList',
@@ -99,13 +100,12 @@ export const routesArr: Route[] = [
     description: 'Take a photo with your device camera',
     emoji: '📷',
     component: CameraScreen,
-    headerShown: false,
   },
 ];
 
 export const allRoutes = Object.fromEntries(
   routesArr.map((screen) => {
-    const { name, title, description, emoji, component, headerShown = true } = screen;
+    const { name, title, description, emoji, component, headerShown = false } = screen;
 
     return [
       name,
