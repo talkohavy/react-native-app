@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CameraView } from 'expo-camera';
 import { Theme } from '@src/common/constants';
@@ -18,9 +18,11 @@ export default function TakePicture(props: TakePictureProps) {
     <SafeAreaView style={styles.flex} edges={['top', 'bottom', 'left', 'right']}>
       <CameraView ref={cameraRef} style={styles.camera} facing={facing} />
 
-      <Pressable onPress={handleFlipCamera} style={styles.flipButton}>
-        <Text style={styles.flipIcon}>⟳</Text>
-      </Pressable>
+      {Platform.OS !== 'web' && (
+        <Pressable onPress={handleFlipCamera} style={styles.flipButton}>
+          <Text style={styles.flipIcon}>⟳</Text>
+        </Pressable>
+      )}
 
       <SafeAreaView style={styles.controls} edges={['bottom']}>
         <Pressable
