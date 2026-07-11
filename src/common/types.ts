@@ -22,4 +22,8 @@ export type Route = {
    * @default false
    */
   headerShown?: boolean;
+  /**
+   * @default true
+   */
+  showAsLink?: boolean;
 };

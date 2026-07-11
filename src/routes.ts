@@ -1,4 +1,6 @@
 import AboutScreen from './screens/AboutScreen';
+import BookDetailScreen from './screens/BookDetailScreen';
+import BooksScreen from './screens/BooksScreen';
 import CameraScreen from './screens/CameraScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
 import FormScreen from './screens/FormScreen';
@@ -31,6 +33,23 @@ export const routesArr: Route[] = [
     emoji: '🏠',
     component: HomeScreen,
     headerShown: false,
+    showAsLink: false,
+  },
+  {
+    name: 'Books',
+    title: 'My Books',
+    description: 'Browse and manage your book collection',
+    emoji: '📚',
+    component: BooksScreen,
+    headerShown: false,
+  },
+  {
+    name: 'BookDetail',
+    title: 'Book Detail',
+    description: 'Book Detail',
+    emoji: '📚',
+    component: BookDetailScreen,
+    headerShown: true,
     showAsLink: false,
   },
   {
