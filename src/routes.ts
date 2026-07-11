@@ -1,4 +1,5 @@
 import AboutScreen from './screens/AboutScreen';
+import CameraScreen from './screens/CameraScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
 import FormScreen from './screens/FormScreen';
 import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
@@ -91,6 +92,13 @@ export const routesArr: Route[] = [
     description: 'Basic form with string and number inputs',
     emoji: '📝',
     component: FormScreen,
+  },
+  {
+    name: 'Camera',
+    title: 'Camera',
+    description: 'Take a photo with your device camera',
+    emoji: '📷',
+    component: CameraScreen,
   },
 ];
 

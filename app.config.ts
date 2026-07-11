@@ -43,6 +43,14 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   plugins: [
     'expo-notifications',
     [
+      'expo-camera',
+      {
+        cameraPermission: 'Allow $(PRODUCT_NAME) to access your camera to take photos.',
+        microphonePermission: 'Allow $(PRODUCT_NAME) to access your microphone.',
+        recordAudioAndroid: false,
+      },
+    ],
+    [
       'expo-splash-screen',
       {
         backgroundColor: '#208AEF',
