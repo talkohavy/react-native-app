@@ -4,7 +4,7 @@ import BooksScreen from './screens/BooksScreen';
 import CameraScreen from './screens/CameraScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
 import FormScreen from './screens/FormScreen';
-import HomeScreen from './screens/HomeScreen';
+// import HomeScreen from './screens/HomeScreen';
 import ImagePickerScreen from './screens/ImagePickerScreen';
 import LoadingScreen from './screens/LoadingScreen/LoadingScreen';
 import ModalScreen from './screens/ModalScreen';
@@ -26,15 +26,20 @@ import type { Route } from './common/types';
  * calls against the exact set of route names below.
  */
 export const routesArr: Route[] = [
-  {
-    name: 'Home',
-    title: 'Home',
-    description: 'Home',
-    emoji: '🏠',
-    component: HomeScreen,
-    headerShown: false,
-    showAsLink: false,
-  },
+  /**
+   * If enbaled, causes circular dependency:
+   *
+   * > Require cycle: src/routes.ts -> src/screens/HomeScreen/index.ts -> src/screens/HomeScreen/HomeScreen.tsx -> src/routes.ts
+   */
+  // {
+  //   name: 'Home',
+  //   title: 'Home',
+  //   description: 'Home',
+  //   emoji: '🏠',
+  //   component: HomeScreen,
+  //   headerShown: false,
+  //   showAsLink: false,
+  // },
   {
     name: 'Books',
     title: 'My Books',

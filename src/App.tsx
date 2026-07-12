@@ -6,6 +6,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import SuspenseUntilReady from './components/SuspenseUntilReady';
 import NotificationProvider from './providers/NotificationProvider';
 import { routesObj } from './routes';
+import HomeScreen from './screens/HomeScreen';
 import LoadingScreen from './screens/LoadingScreen';
 
 // Keep the native splash screen up until our own JS content (the LoadingSpinner) is
@@ -18,6 +19,10 @@ const RootStack = createNativeStackNavigator({
     headerTintColor: '#8A5CF6',
   },
   screens: {
+    Home: {
+      screen: HomeScreen,
+      options: { headerShown: false },
+    },
     ...routesObj,
   },
 });
