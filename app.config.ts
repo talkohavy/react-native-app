@@ -85,6 +85,17 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         fonts: ['node_modules/@expo-google-fonts/matemasie/400Regular/Matemasie_400Regular.ttf'],
       },
     ],
+    [
+      'expo-quick-actions',
+      {
+        androidIcons: {
+          leaf: {
+            foregroundImage: './assets/images/react-logo.png',
+            backgroundColor: '#208AEF',
+          },
+        },
+      },
+    ],
   ],
   experiments: {
     reactCompiler: true,
