@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Platform } from 'react-native';
 import { Theme } from '../../common/constants';
 
 export default function CustomFontScreen() {
@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
     color: Theme.light.colors.base_100,
     fontSize: Theme.fontSizes.xl_8,
     fontWeight: 'semibold',
-    fontFamily: 'Matemasie_400Regular',
+    fontFamily: Platform.select({
+      android: 'Matemasie_400Regular',
+      ios: 'Matemasie-Regular',
+    }),
   },
 });
