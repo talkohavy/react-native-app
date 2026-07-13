@@ -15,6 +15,8 @@ SplashScreen.preventAutoHideAsync();
 
 const Navigation = createStaticNavigation(RootStack);
 
+const linking = { prefixes: ['reactnativeapp://'] };
+
 export default function App() {
   useAppLogic();
 
@@ -22,7 +24,7 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SuspenseUntilReady asyncFn={onAppLoading} Loader={<LoadingScreen />}>
         <NotificationProvider>
-          <Navigation ref={navigationRef} />
+          <Navigation ref={navigationRef} linking={linking} />
         </NotificationProvider>
       </SuspenseUntilReady>
     </GestureHandlerRootView>

@@ -47,6 +47,7 @@ export const routesArr: Route[] = [
     emoji: '📚',
     component: BooksScreen,
     headerShown: false,
+    path: 'books',
   },
   {
     name: 'BookDetail',
@@ -56,6 +57,7 @@ export const routesArr: Route[] = [
     component: BookDetailScreen,
     headerShown: true,
     showAsLink: false,
+    path: 'book-detail',
   },
   {
     name: 'Showcase',
@@ -63,6 +65,7 @@ export const routesArr: Route[] = [
     description: 'Gradients, gestures & motion playground',
     emoji: '✨',
     component: ShowcaseScreen,
+    path: 'showcase',
   },
   {
     name: 'Custom Font',
@@ -71,6 +74,7 @@ export const routesArr: Route[] = [
     emoji: 'ℹ️',
     component: CustomFontScreen,
     headerShown: true,
+    path: 'custom-font',
   },
   {
     name: 'ShoppingList',
@@ -78,6 +82,7 @@ export const routesArr: Route[] = [
     description: 'Add & remove items from your list',
     emoji: '🛒',
     component: ShoppingListScreen,
+    path: 'shopping-list',
   },
   {
     name: 'PushNotifications',
@@ -85,6 +90,7 @@ export const routesArr: Route[] = [
     description: 'Send push notifications',
     emoji: '📱',
     component: PushNotificationsScreen,
+    path: 'push-notifications',
   },
   {
     name: 'Loading',
@@ -92,6 +98,7 @@ export const routesArr: Route[] = [
     description: 'Loading screen',
     emoji: '🔄',
     component: LoadingScreen,
+    path: 'loading',
   },
   {
     name: 'ZustandCounter',
@@ -99,6 +106,7 @@ export const routesArr: Route[] = [
     description: 'Zustand store persisted with AsyncStorage',
     emoji: '🐻',
     component: ZustandCounterScreen,
+    path: 'zustand-counter',
   },
   {
     name: 'ExpoImage',
@@ -106,6 +114,7 @@ export const routesArr: Route[] = [
     description: 'Placeholders, transitions & caching with expo-image',
     emoji: '🖼️',
     component: ExpoImageScreen,
+    path: 'expo-image',
   },
   {
     name: 'Modal',
@@ -113,6 +122,7 @@ export const routesArr: Route[] = [
     description: 'Custom Modal component: basic, action sheet & confirm dialog',
     emoji: '🪟',
     component: ModalScreen,
+    path: 'modal',
   },
   {
     name: 'Form',
@@ -120,6 +130,7 @@ export const routesArr: Route[] = [
     description: 'Basic form with string and number inputs',
     emoji: '📝',
     component: FormScreen,
+    path: 'form',
   },
   {
     name: 'Camera',
@@ -127,6 +138,7 @@ export const routesArr: Route[] = [
     description: 'Take a photo with your device camera',
     emoji: '📷',
     component: CameraScreen,
+    path: 'camera',
   },
   {
     name: 'ImagePicker',
@@ -134,12 +146,13 @@ export const routesArr: Route[] = [
     description: 'Pick an image and inspect its metadata',
     emoji: '🖼️',
     component: ImagePickerScreen,
+    path: 'image-picker',
   },
 ];
 
 export const routesObj = Object.fromEntries(
   routesArr.map((screen) => {
-    const { name, title, description, emoji, component, headerShown = false } = screen;
+    const { name, title, description, emoji, component, headerShown = false, path } = screen;
 
     return [
       name,
@@ -151,6 +164,7 @@ export const routesObj = Object.fromEntries(
           description,
           emoji,
         },
+        linking: { path },
       },
     ];
   }),

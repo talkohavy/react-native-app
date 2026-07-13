@@ -11,6 +11,7 @@ export const RootStack = createNativeStackNavigator({
     Home: {
       screen: HomeScreen,
       options: { headerShown: false },
+      linking: { path: '' },
     },
     ...routesObj,
   },

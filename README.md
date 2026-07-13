@@ -42,3 +42,9 @@ You can test your app opens using this:
 ```bash
 npx uri-scheme open reactnativeapp:// --android
 ```
+
+You can even select a specific page:
+
+```bash
+npx uri-scheme open reactnativeapp://books --android
+```
