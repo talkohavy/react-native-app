@@ -1,7 +1,7 @@
-import AboutScreen from './screens/AboutScreen';
 import BookDetailScreen from './screens/BookDetailScreen';
 import BooksScreen from './screens/BooksScreen';
 import CameraScreen from './screens/CameraScreen';
+import CustomFontScreen from './screens/CustomFontScreen';
 import ExpoImageScreen from './screens/ExpoImageScreen';
 import FormScreen from './screens/FormScreen';
 // import HomeScreen from './screens/HomeScreen';
@@ -65,11 +65,11 @@ export const routesArr: Route[] = [
     component: ShowcaseScreen,
   },
   {
-    name: 'About',
-    title: 'About',
-    description: 'What this app is about',
+    name: 'Custom Font',
+    title: 'Custom Font',
+    description: 'Hot to use custom font in your app',
     emoji: 'ℹ️',
-    component: AboutScreen,
+    component: CustomFontScreen,
     headerShown: true,
   },
   {

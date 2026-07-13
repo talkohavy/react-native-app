@@ -78,6 +78,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
         },
       },
     ],
+    // fonts
+    [
+      'expo-font',
+      {
+        fonts: ['node_modules/@expo-google-fonts/matemasie/400Regular/Matemasie_400Regular.ttf'],
+      },
+    ],
   ],
   experiments: {
     reactCompiler: true,

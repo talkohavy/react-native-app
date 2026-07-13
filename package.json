@@ -27,6 +27,7 @@
     "lint:expo": "expo lint"
   },
   "dependencies": {
+    "@expo-google-fonts/matemasie": "^0.4.0",
     "@expo/ui": "~56.0.21",
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-navigation/bottom-tabs": "^7.18.5",
