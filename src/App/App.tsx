@@ -2,6 +2,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStaticNavigation } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import SuspenseUntilReady from '../components/SuspenseUntilReady';
+import { navigationRef } from '../navigation/navigationRef';
 import NotificationProvider from '../providers/NotificationProvider';
 import LoadingScreen from '../screens/LoadingScreen';
 import { RootStack } from './logic/rootStack';
@@ -21,7 +22,7 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SuspenseUntilReady asyncFn={onAppLoading} Loader={<LoadingScreen />}>
         <NotificationProvider>
-          <Navigation />
+          <Navigation ref={navigationRef} />
         </NotificationProvider>
       </SuspenseUntilReady>
     </GestureHandlerRootView>
