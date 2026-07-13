@@ -8,12 +8,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: 'portrait',
   icon: './assets/images/icon.png',
   /**
-   * The URL scheme used to deep link into this app (e.g. "reactnativeapp://...").
-   * Required for things like OAuth/auth redirects, Expo Linking.createURL, and
-   * opening the app from push notifications or other apps. It's a build-time
-   * setting (baked into the native project), so it has no effect in Expo Go,
-   * and changing it later requires updating Info.plist / AndroidManifest.xml
-   * in a bare/prebuilt project.
+   * The scheme looks like this: reactnativeapp://...
+   * It looks similar to `http://`, `mailto:` or `tel:`.
+   * A link to the app will look like this: reactnativeapp://...
+   * This is called an "intent filter" in Android.
+   * It doesn't have to be unique to the app, as you might already know from http:// urls,
+   * where the phone asks you which browser you want to open it with.
    */
   scheme: 'reactnativeapp',
   userInterfaceStyle: 'automatic',
