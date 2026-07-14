@@ -8,7 +8,7 @@ import { useFormScreenLogic } from './logic/useFormScreenLogic';
 const cuteImage = require('@src/assets/cute.png') as number;
 
 export default function FormScreen() {
-  const { name, setName, amount, setAmount, amountRef, focusAmount, handleSubmit, submission, closeModal } =
+  const { name, setName, amount, setAmount, amountRef, focusAmount, onSubmitClick, submission, closeModal } =
     useFormScreenLogic();
 
   const submitButtonStyle = ({ pressed }: { pressed: boolean }) => [
@@ -49,7 +49,7 @@ export default function FormScreen() {
               ref={amountRef}
               value={amount}
               onChangeText={setAmount}
-              onSubmitEditing={handleSubmit}
+              onSubmitEditing={onSubmitClick}
               returnKeyType='done'
               keyboardType='numeric'
               style={styles.input}
@@ -58,7 +58,7 @@ export default function FormScreen() {
             />
           </View>
 
-          <Pressable onPress={handleSubmit} style={submitButtonStyle}>
+          <Pressable onPress={onSubmitClick} style={submitButtonStyle}>
             <Text style={styles.submitButtonText}>Add</Text>
           </Pressable>
         </ScrollView>
