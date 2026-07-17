@@ -1,6 +1,8 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 import type { TextInput } from 'react-native';
+import { useCatchFormActions } from './hooks/useCatchFormActions';
+import type { HandleSubmitProps } from '../types';
 
 type Submission = { name: string; amount: number };
 
@@ -10,7 +12,13 @@ export function useFormScreenLogic() {
   const [submission, setSubmission] = useState<Submission | null>(null);
   const amountRef = useRef<TextInput>(null);
 
-  const handleSubmit = () => {
+  const onSubmitClick = () => {
+    handleSubmit({ name, amount });
+  };
+
+  const handleSubmit = useCallback((params: HandleSubmitProps) => {
+    const { name, amount } = params;
+
     const trimmedName = name.trim();
     const parsedAmount = Number(amount);
 
@@ -32,7 +40,7 @@ export function useFormScreenLogic() {
     setSubmission({ name: trimmedName, amount: parsedAmount });
     setName('');
     setAmount('');
-  };
+  }, []);
 
   const closeModal = () => setSubmission(null);
 
@@ -40,5 +48,7 @@ export function useFormScreenLogic() {
     amountRef.current?.focus();
   };
 
-  return { name, setName, amount, setAmount, amountRef, focusAmount, handleSubmit, submission, closeModal };
+  useCatchFormActions({ handleSubmit });
+
+  return { name, setName, amount, setAmount, amountRef, focusAmount, onSubmitClick, submission, closeModal };
 }

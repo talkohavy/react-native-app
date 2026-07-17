@@ -19,6 +19,11 @@ export type Route = {
   emoji: string;
   component: ComponentType;
   /**
+   * Deep-link path segment, e.g. `'books'` → `reactnativeapp://books`.
+   * Omit for screens that should not be deep-linkable.
+   */
+  path: string;
+  /**
    * @default false
    */
   headerShown?: boolean;

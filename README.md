@@ -32,3 +32,19 @@ When the menu pops up, hit `a`, which would launch the android simulator.
 2. Turn on **Wireless debugging**
 3. Pair your phone with your mac pc
 4. Run `pnpm start` while your phone screen is on.
+
+---
+
+## 4. Quick Actions
+
+You can test your app opens using this:
+
+```bash
+npx uri-scheme open reactnativeapp:// --android
+```
+
+You can even select a specific page:
+
+```bash
+npx uri-scheme open reactnativeapp://books --android
+```
